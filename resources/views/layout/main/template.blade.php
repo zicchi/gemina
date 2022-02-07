@@ -31,13 +31,14 @@
     <link rel="stylesheet" href="{{asset('main/assets/css/demo6.css')}}" />
 
 </head>
+@livewireStyles
 <body>
 <div id="ec-overlay"><span class="loader_img"></span></div>
 
 @include('includes.main.navbar')
 
 <!-- Main Slider Start -->
-@include('includes.main.slider')
+{{--@include('includes.main.slider')--}}
 <!-- Main Slider End -->
 
 <!-- Product tab Area Start -->
@@ -63,6 +64,7 @@
 <!-- Footer Area End -->
 
 <!-- Modal -->
+@yield('modal')
 <!-- Modal end -->
 
 <!-- Click To Call -->
@@ -76,6 +78,8 @@
 <!-- Footer navigation panel for responsive display end -->
 
 <!-- Vendor JS -->
+
+@livewireScripts
 <script src="{{asset('main/assets/js/vendor/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('main/assets/js/vendor/popper.min.js')}}"></script>
 <script src="{{asset('main/assets/js/vendor/bootstrap.min.js')}}"></script>

@@ -7,12 +7,10 @@
                     <div class="row">
                         <div class="col-sm-12 align-self-center">
                             <div class="ec-slide-content slider-animation">
-                                <h2 class="ec-slide-stitle">fresh & healthy</h2>
-                                <h1 class="ec-slide-title">Organic Fruits</h1>
+                                <h2 class="ec-slide-stitle">Kumpulan Webinar</h2>
+                                <h1 class="ec-slide-title">#dijaminGurih</h1>
                                 <div class="ec-slide-desc">
-                                    <p>starting at $ <b>29</b>.99</p>
-                                    <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                            class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn btn-lg btn-primary">Katalog</a>
                                 </div>
                             </div>
                         </div>
@@ -24,12 +22,10 @@
                     <div class="row">
                         <div class="col-sm-12 align-self-center">
                             <div class="ec-slide-content slider-animation">
-                                <h2 class="ec-slide-stitle">Organic & healthy</h2>
-                                <h1 class="ec-slide-title">fresh vegetables</h1>
+                                <h2 class="ec-slide-stitle">Ayo Gabung !</h2>
+                                <h1 class="ec-slide-title">promosikan webinarmu</h1>
                                 <div class="ec-slide-desc">
-                                    <p>starting at $ <b>20</b>.00</p>
-                                    <a href="#" class="btn btn-lg btn-primary">Shop Now <i
-                                            class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="#" class="btn btn-lg btn-primary">Gabung</a>
                                 </div>
                             </div>
                         </div>

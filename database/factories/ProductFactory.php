@@ -15,8 +15,9 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->company,
+            'description' => $this->faker->words(20,true),
             'user_id' => 1,
-            'date' => now(),
+            'date' => now()->addDays(rand(1,10)),
             'category_id' => 1,
             'fee' => 0,
             'activated' => true,

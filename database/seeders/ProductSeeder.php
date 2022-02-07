@@ -15,6 +15,12 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::truncate();
-        Product::factory()->count(10)->create();
+
+        Product::factory()->count(5)->create();
+
+        Product::factory()->count(5)->create([
+            'date' => now()->subDay(),
+            'activated' => false,
+        ]);
     }
 }

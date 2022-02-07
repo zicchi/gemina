@@ -83,7 +83,6 @@
                                 <div class="ec-main-menu">
                                     <ul>
                                         <li class="non-drop"><a href="index.html">Home</a></li>
-                                        <li class="non-drop"><a href="index.html">Home</a></li>
                                     </ul>
                                 </div>
                             </div>
