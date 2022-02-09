@@ -38,7 +38,9 @@
 @include('includes.main.navbar')
 
 <!-- Main Slider Start -->
-{{--@include('includes.main.slider')--}}
+@if(request()->is('/'))
+    @include('includes.main.slider')
+@endif
 <!-- Main Slider End -->
 
 <!-- Product tab Area Start -->

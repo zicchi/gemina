@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.main.home');
+Route::group(['prefix' => '/','as' => 'main::'],function (){
+    Route::get('/', function () {
+        return view('pages.main.home');
+    });
 });
