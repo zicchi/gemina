@@ -42,7 +42,25 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="{{route('main::product::index')}}">Product</a></li>
+                    <li><a href="{{route('main::faq')}}">Speaker</a></li>
                     <li><a href="{{route('main::faq')}}">FAQ</a></li>
+                    <li><a href="{{route('main::faq')}}">Contact</a></li>
+                    <li class="dropdown drop-list">
+                        <a href="javascript:void(0)" class="dropdown-arrow">Pages<i class="ecicon eci-angle-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="compare.html">Compare</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="track-order.html">Track Order</a></li>
+                            <li><a href="terms-condition.html">Terms Condition</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="header-res-lan-curr">
@@ -86,7 +104,16 @@
                                     <ul>
                                         <li class="non-drop"><a href="/">Home</a></li>
                                         <li class="non-drop"><a href="{{route('main::product::index')}}">Product</a></li>
+                                        <li class="non-drop"><a href="{{route('main::faq')}}">Speaker</a></li>
                                         <li class="non-drop"><a href="{{route('main::faq')}}">FAQ</a></li>
+                                        <li class="non-drop"><a href="{{route('main::faq')}}">Contact</a></li>
+                                        <li class="dropdown drop-list">
+                                            <a class="dropdown-arrow">Account<i class="ecicon eci-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about-us.html">Dashboard</a></li>
+                                                <li><a href="about-us.html">Dashboard</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
