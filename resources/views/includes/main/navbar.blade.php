@@ -106,7 +106,7 @@
                                         <li class="non-drop"><a href="{{route('main::product::index')}}">Product</a></li>
                                         <li class="non-drop"><a href="{{route('main::faq')}}">Speaker</a></li>
                                         <li class="non-drop"><a href="{{route('main::faq')}}">FAQ</a></li>
-                                        <li class="non-drop"><a href="{{route('main::faq')}}">Contact</a></li>
+                                        <li class="non-drop"><a href="{{route('main::suggestion::index')}}">Contact</a></li>
                                         <li class="dropdown drop-list">
                                             <a class="dropdown-arrow">Account<i class="ecicon eci-angle-right"></i></a>
                                             <ul class="sub-menu">

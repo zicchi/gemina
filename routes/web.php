@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Main\FaqController;
 use App\Http\Controllers\Main\ProductController;
+use App\Http\Controllers\Main\SuggestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,8 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
         Route::get('/show/{product}',[ProductController::class,'show'])->name('show');
     });
     Route::get('/faq',[FaqController::class,'index'])->name('faq');
+    Route::group(['prefix'=>'contact','as' => 'suggestion::'],function (){
+        Route::get('/',[SuggestionController::class,'index'])->name('index');
+        Route::post('/',[SuggestionController::class,'store'])->name('store');
+    });
 });
