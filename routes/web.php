@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Main\FaqController;
 use App\Http\Controllers\Main\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,5 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
         Route::get('/',[ProductController::class,'index'])->name('index');
         Route::get('/show/{product}',[ProductController::class,'show'])->name('show');
     });
+    Route::get('/faq',[FaqController::class,'index'])->name('faq');
 });

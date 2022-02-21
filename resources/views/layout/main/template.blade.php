@@ -97,10 +97,13 @@
 <script src="{{asset('main/assets/js/plugins/slick.min.js')}}"></script>
 <script src="{{asset('main/assets/js/plugins/infiniteslidev2.js')}}"></script>
 <script src="{{asset('main/assets/js/plugins/click-to-call.js')}}"></script>
-
+<script src="{{asset('main/assets/js/vendor/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('main/assets/js/plugins/jquery.sticky-sidebar.js')}}"></script>
 <!-- Main Js -->
+
 <script src="{{asset('main/assets/js/vendor/index.js')}}"></script>
-<script src="{{asset('main/assets/js/demo-6.js')}}"></script>
+<script src="{{asset('main/assets/js/main.js')}}"></script>
+{{--<script src="{{asset('main/assets/js/demo-6.js')}}"></script>--}}
 
 </body>
 

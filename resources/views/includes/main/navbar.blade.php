@@ -41,7 +41,8 @@
             <div class="ec-menu-content">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="/product">Product</a></li>
+                    <li><a href="{{route('main::product::index')}}">Product</a></li>
+                    <li><a href="{{route('main::faq')}}">FAQ</a></li>
                 </ul>
             </div>
             <div class="header-res-lan-curr">
@@ -84,7 +85,8 @@
                                 <div class="ec-main-menu">
                                     <ul>
                                         <li class="non-drop"><a href="/">Home</a></li>
-                                        <li class="non-drop"><a href="/product">Product</a></li>
+                                        <li class="non-drop"><a href="{{route('main::product::index')}}">Product</a></li>
+                                        <li class="non-drop"><a href="{{route('main::faq')}}">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>

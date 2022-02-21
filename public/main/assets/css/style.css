@@ -22656,6 +22656,7 @@ li.ec-contact-item span {
   border: 1px solid #ededed;
   padding: 30px;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 .ec-faq-container-1 {
@@ -22703,6 +22704,7 @@ h2.ec-faq-heading, .ec-faq-heading.h2 {
 }
 
 .ec-faq-block {
+    border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -22713,6 +22715,8 @@ h2.ec-faq-heading, .ec-faq-heading.h2 {
 .ec-faq-block:first-child .ec-faq-content {
   display: block;
   background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .ec-faq-block:last-child {
   margin-bottom: 0;
