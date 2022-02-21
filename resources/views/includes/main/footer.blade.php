@@ -1,66 +1,5 @@
 
 <footer class="ec-footer">
-    <div class="footer-newletter section-space-footer-p">
-        <div class="container">
-            <div class="row">
-                <div class="footer-cat-inner">
-                    <div class="footer-cat-block">
-                        <div class="footer-cat-stitle">Brands Directory</div>
-                        <div class="block">
-                            <span class="footer-cat-title">Fast Food : </span>
-                            <a href="shop-left-sidebar-col-3.html">Pizza</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Burger's</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Chicken Sandwich</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Cherry Limeade</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Cheese Burger</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Chocolate Frosty</a>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">Milks and Dairies : </span>
-                            <a href="shop-left-sidebar-col-3.html">Milk</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Paneer</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Butter</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Yogurt</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Cheese</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Whipping cream</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Curd</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Milkshake</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Sweets</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Chocolate</a>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">Vegetables : </span>
-                            <a href="shop-left-sidebar-col-3.html">asparagus</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Broccoli</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Cucumber</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Pumpkin</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Capsicum</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Radish</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">ginger</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">mushroom</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Lettuce</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">coriender</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Jackfruit</a>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">Baking material : </span>
-                            <a href="shop-left-sidebar-col-3.html">Brownies</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">cookies</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">cupcakes</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">granola bars</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">lemon bars</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">muffins</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">pretzel sticks</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">rice Crispy treats</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">sweet rolls</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">cake balls</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">cake slices</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="footer-container">
         <div class="footer-top section-space-footer-p">
             <div class="container">
@@ -193,31 +132,31 @@
     </div>
 </footer>
 
-<div class="ec-nav-toolbar">
-    <div class="container">
-        <div class="ec-nav-panel">
-            <div class="ec-nav-panel-icons">
-                <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><img
-                        src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon" /></a>
-            </div>
-            <div class="ec-nav-panel-icons">
-                <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><img
-                        src="assets/images/icons/cart.svg" class="svg_img header_svg" alt="icon" /><span
-                        class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
-            </div>
-            <div class="ec-nav-panel-icons">
-                <a href="index.html" class="ec-header-btn"><img src="assets/images/icons/home.svg"
-                                                                class="svg_img header_svg" alt="icon" /></a>
-            </div>
-            <div class="ec-nav-panel-icons">
-                <a href="wishlist.html" class="ec-header-btn"><img src="assets/images/icons/wishlist.svg"
-                                                                   class="svg_img header_svg" alt="icon" /><span class="ec-cart-noti">4</span></a>
-            </div>
-            <div class="ec-nav-panel-icons">
-                <a href="login.html" class="ec-header-btn"><img src="assets/images/icons/user.svg"
-                                                                class="svg_img header_svg" alt="icon" /></a>
-            </div>
+{{--<div class="ec-nav-toolbar">--}}
+{{--    <div class="container">--}}
+{{--        <div class="ec-nav-panel">--}}
+{{--            <div class="ec-nav-panel-icons">--}}
+{{--                <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><img--}}
+{{--                        src="assets/images/icons/menu.svg" class="svg_img header_svg" alt="icon" /></a>--}}
+{{--            </div>--}}
+{{--            <div class="ec-nav-panel-icons">--}}
+{{--                <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><img--}}
+{{--                        src="assets/images/icons/cart.svg" class="svg_img header_svg" alt="icon" /><span--}}
+{{--                        class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>--}}
+{{--            </div>--}}
+{{--            <div class="ec-nav-panel-icons">--}}
+{{--                <a href="index.html" class="ec-header-btn"><img src="assets/images/icons/home.svg"--}}
+{{--                                                                class="svg_img header_svg" alt="icon" /></a>--}}
+{{--            </div>--}}
+{{--            <div class="ec-nav-panel-icons">--}}
+{{--                <a href="wishlist.html" class="ec-header-btn"><img src="assets/images/icons/wishlist.svg"--}}
+{{--                                                                   class="svg_img header_svg" alt="icon" /><span class="ec-cart-noti">4</span></a>--}}
+{{--            </div>--}}
+{{--            <div class="ec-nav-panel-icons">--}}
+{{--                <a href="login.html" class="ec-header-btn"><img src="assets/images/icons/user.svg"--}}
+{{--                                                                class="svg_img header_svg" alt="icon" /></a>--}}
+{{--            </div>--}}
 
-        </div>
-    </div>
-</div>
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}

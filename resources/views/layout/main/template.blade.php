@@ -29,6 +29,7 @@
 
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('main/assets/css/demo6.css')}}" />
+    @stack('top')
 
 </head>
 @livewireStyles
@@ -62,7 +63,7 @@
 <!-- Ec Instagram End -->
 
 <!-- Footer Start -->
-
+@include('includes.main.footer')
 <!-- Footer Area End -->
 
 <!-- Modal -->

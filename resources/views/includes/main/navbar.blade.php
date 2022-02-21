@@ -41,6 +41,7 @@
             <div class="ec-menu-content">
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="/product">Product</a></li>
                 </ul>
             </div>
             <div class="header-res-lan-curr">
@@ -82,7 +83,8 @@
                             <div class="col-md-12 align-self-center">
                                 <div class="ec-main-menu">
                                     <ul>
-                                        <li class="non-drop"><a href="index.html">Home</a></li>
+                                        <li class="non-drop"><a href="/">Home</a></li>
+                                        <li class="non-drop"><a href="/product">Product</a></li>
                                     </ul>
                                 </div>
                             </div>

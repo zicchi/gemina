@@ -16870,8 +16870,9 @@ div#ec-main-menu-desk {
 }
 .ec-search-select-inner select {
   cursor: pointer;
-  padding: 0 10px;
+  /*padding: 0 px;*/
   color: #777;
+    width: 200px;
   letter-spacing: 0.8px;
   border: none;
   outline: none;
@@ -16882,7 +16883,6 @@ div#ec-main-menu-desk {
 }
 .ec-search-select-inner::before {
   content: "";
-  position: absolute;
   top: 0;
   right: 0;
   left: auto;

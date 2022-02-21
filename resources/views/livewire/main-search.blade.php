@@ -9,7 +9,18 @@
             <div class="align-self-center ec-header-search">
                 <div class="header-search">
                     <form class="ec-search-group-form" action="#">
-                        <input class="form-control" wire:model="query" placeholder="Ikut seminar apa ya... ?" type="text">
+                        <div class="input-group">
+                            <input class="form-control" wire:model="query" placeholder="Ikut seminar apa ya... ?" type="text">
+                        </div>
+                        <div class="ec-search-select-inner">
+                            <select wire:model="category_id" aria-label="Default select example">
+                                <option value="0">Kategori</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                            <span><i class="fas fa-chevron-down"></i></span>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -39,9 +50,9 @@
                                     </div>
                                 </div>
                                 <div class="ec-pro-content">
-                                    <a href="#"><h6 class="ec-pro-stitle">{{$product->category->name}}</h6></a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{$product->id}}"><h6 class="ec-pro-title">{{\Illuminate\Support\Str::limit($product->name,20)}}</h6></a>
-                                    <h5 class="ec-pro-title"><a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{$product->id}}">{{\Illuminate\Support\Str::limit($product->description,20)}}</a></h5>
+                                    <a href="{{route('main::product::show',[$product])}}"><h6 class="ec-pro-stitle">{{$product->category->name}}</h6></a>
+                                    <a href="{{route('main::product::show',[$product])}}"><h6 class="ec-pro-title">{{\Illuminate\Support\Str::limit($product->name,20)}}</h6></a>
+                                    <h5 class="ec-pro-title"><a href="{{route('main::product::show',[$product])}}">{{\Illuminate\Support\Str::limit($product->description,20)}}</a></h5>
                                     <div class="ec-pro-rat-price">
                                     <span class="ec-price">
                                         @if($product->fee == 0)
