@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
-class Product extends Model
+class Speaker extends Model
 {
     use HasFactory;
-    use InteractsWithViews;
 
     public function category()
     {

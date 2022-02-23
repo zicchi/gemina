@@ -42,9 +42,9 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="{{route('main::product::index')}}">Product</a></li>
-                    <li><a href="{{route('main::faq')}}">Speaker</a></li>
+                    <li><a href="{{route('main::speaker::index')}}">Speaker</a></li>
                     <li><a href="{{route('main::faq')}}">FAQ</a></li>
-                    <li><a href="{{route('main::faq')}}">Contact</a></li>
+                    <li><a href="{{route('main::suggestion::index')}}">Contact</a></li>
                     <li class="dropdown drop-list">
                         <a href="javascript:void(0)" class="dropdown-arrow">Pages<i class="ecicon eci-angle-right"></i></a>
                         <ul class="sub-menu">
@@ -104,7 +104,7 @@
                                     <ul>
                                         <li class="non-drop"><a href="/">Home</a></li>
                                         <li class="non-drop"><a href="{{route('main::product::index')}}">Product</a></li>
-                                        <li class="non-drop"><a href="{{route('main::faq')}}">Speaker</a></li>
+                                        <li class="non-drop"><a href="{{route('main::speaker::index')}}">Speaker</a></li>
                                         <li class="non-drop"><a href="{{route('main::faq')}}">FAQ</a></li>
                                         <li class="non-drop"><a href="{{route('main::suggestion::index')}}">Contact</a></li>
                                         <li class="dropdown drop-list">

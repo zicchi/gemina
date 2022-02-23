@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="{{asset('main/assets/css/plugins/bootstrap.css')}}" />
 
     <!-- Main Style -->
-    <link rel="stylesheet" href="{{asset('main/assets/css/demo6.css')}}" />
     @stack('top')
+    <link rel="stylesheet" href="{{asset('main/assets/css/demo6.css')}}" />
+
 
 </head>
 @livewireStyles
