@@ -12,6 +12,10 @@ class Product extends Model
     use HasFactory;
     use InteractsWithViews;
 
+    protected $casts = [
+        'date' => 'datetime'
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

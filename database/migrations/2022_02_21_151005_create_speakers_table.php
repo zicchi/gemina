@@ -17,6 +17,7 @@ class CreateSpeakersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->bigInteger('category_id')->index();
             $table->string('bio');
             $table->string('instance');

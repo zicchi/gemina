@@ -34,7 +34,7 @@
                                     <div class="countdowntimer">
                                         <span class="ec-spe-count-desc">Menuju kegiatan :</span>
                                         <span class="fs-3 font-weight-bold">
-                                            {{now()->diffInDays($product->date) > 0 ? now()->diffInDays($product->date).' Hari' : 'Hari Ini'}}
+                                            {{$product->date->diffForHumans()}}
                                         </span>
                                     </div>
 
