@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\User\LoginController;
 use App\Http\Controllers\Main\FaqController;
 use App\Http\Controllers\Main\ProductController;
 use App\Http\Controllers\Main\SpeakerController;
 use App\Http\Controllers\Main\SuggestionController;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +36,18 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
     Route::group(['prefix'=>'contact','as' => 'suggestion::'],function (){
         Route::get('/',[SuggestionController::class,'index'])->name('index');
         Route::post('/',[SuggestionController::class,'store'])->name('store');
+    });
+
+    Route::get('/login',[LoginController::class,'index'])->name('login');
+    Route::post('/login',[LoginController::class,'login'])->name('postLogin');
+    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+});
+
+Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],function (){
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('index');
+    Route::group(['prefix' => 'profile','as' => 'profile::'],function (){
+        Route::get('/', [ProfileController::class,'index'])->name('index');
+        Route::put('/', [ProfileController::class,'update'])->name('update');
+
     });
 });

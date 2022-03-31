@@ -50,15 +50,6 @@
                         <ul class="sub-menu">
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="compare.html">Compare</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="track-order.html">Track Order</a></li>
-                            <li><a href="terms-condition.html">Terms Condition</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -110,8 +101,7 @@
                                         <li class="dropdown drop-list">
                                             <a class="dropdown-arrow">Account<i class="ecicon eci-angle-right"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="about-us.html">Dashboard</a></li>
-                                                <li><a href="about-us.html">Dashboard</a></li>
+                                                <li><a href="{{route('user::index')}}">{{auth('user')->user() ? 'Dashboard' : 'Login'}}</a></li>
                                             </ul>
                                         </li>
                                     </ul>

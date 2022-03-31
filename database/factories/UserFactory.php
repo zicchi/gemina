@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'imageUrl' => '',
             'email' => $this->faker->unique()->safeEmail(),
             'password' => Hash::make('123456'),
-            'role' => 'user',
+            'phone' => $this->faker->phoneNumber(),
             'remember_token' => Str::random(10),
         ];
     }
