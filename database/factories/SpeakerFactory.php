@@ -16,6 +16,7 @@ class SpeakerFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->companyEmail,
+            'image' => '',
             'category_id' => 1,
             'bio' => $this->faker->words(20,true),
             'instance' => $this->faker->company,

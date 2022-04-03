@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Helpers\Traits\ImageUploader;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    use ImageUploader;
     public function index()
     {
         return view('pages.user.profile.index',[
@@ -31,13 +33,13 @@ class ProfileController extends Controller
                 return redirect(route('user::profile::index'))->with('danger','Gagal Ubah Profil, password lama tidak sesuai !');
             }
         }
-
-        if ($request->file('image')){
-            $path = $request->file('image')->store(
-                'user/'.$user->id
-            );
-            $user->imageUrl = $path;
+        $user->image = '';
+        $filename = $this->uploadImage($request);
+        if ($filename)
+        {
+            $user->image = $filename;
         }
+
 
         $user->save();
 

@@ -1,5 +1,6 @@
 @extends('layout.user.template')
 @section('title')
+    Dashboard
 @endsection
 @section('content')
     <!-- Top Statistics -->
@@ -16,8 +17,8 @@
         <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
             <div class="card card-mini dash-card card-2">
                 <div class="card-body">
-                    <h2 class="mb-1">79,503</h2>
-                    <p>Daily Visitors</p>
+                    <h2 class="mb-1">{{$joinedEvents}}</h2>
+                    <p>Seminar diikuti</p>
                     <span class="mdi mdi-account-clock"></span>
                 </div>
             </div>
@@ -26,7 +27,7 @@
             <div class="card card-mini dash-card card-3">
                 <div class="card-body">
                     <h2 class="mb-1">{{$events->count()}}</h2>
-                    <p>Event</p>
+                    <p>Seminar dibuat</p>
                     <span class="mdi mdi-package-variant"></span>
                 </div>
             </div>

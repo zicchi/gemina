@@ -1,8 +1,9 @@
 @extends('layout.user.template')
 @section('title')
+    My Profile
 @endsection
 @section('content')
-    <div class="content">
+    <div class="">
         <div class="breadcrumb-wrapper breadcrumb-contacts">
             <div>
                 <h1>User Profile</h1>
@@ -17,7 +18,7 @@
                     <div class="profile-content-left profile-left-spacing">
                         <div class="text-center widget-profile px-0 border-0">
                             <div class="card-img mx-auto rounded-circle">
-                                <img src="{{asset('admin/assets/img/user/u1.jpg')}}" alt="user image">
+                                <img src="{{$user->thumb_image_url}}" alt="user image">
                             </div>
                             <div class="card-body">
                                 <h4 class="py-2 text-dark">{{$user->name}}</h4>

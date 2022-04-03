@@ -20,6 +20,13 @@
                     </a>
                     <hr>
                 </li>
+                <li class="{{request()->is('user/product*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('user::product::index')}}">
+                        <i class="mdi mdi-calendar-check-outline"></i>
+                        <span class="nav-text">Product</span>
+                    </a>
+                    <hr>
+                </li>
             </ul>
         </div>
     </div>

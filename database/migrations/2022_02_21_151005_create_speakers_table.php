@@ -20,6 +20,7 @@ class CreateSpeakersTable extends Migration
             $table->bigInteger('category_id')->index();
             $table->string('bio');
             $table->string('instance');
+            $table->string('image');
             $table->string('cvUrl')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();

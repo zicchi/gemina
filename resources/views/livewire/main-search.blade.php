@@ -42,7 +42,7 @@
                                         <span class="label veg">
                                             <span class="dot"></span>
                                         </span>
-                                            <img class="main-image" src="{{asset('main/assets/images/product-image/50_1.jpg')}}" alt="Product" />
+                                            <img class="main-image" src="{{$product->image != '' ? $product->thumb_image_url : asset('main/assets/images/product-image/50_1.jpg')}}" alt="Product" />
                                         </a>
                                         <span class="flags">
                                         <span class="new">New</span>

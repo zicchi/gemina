@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Traits\ModelImageUrl;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ class Product extends Model
 {
     use HasFactory;
     use InteractsWithViews;
+    use ModelImageUrl;
 
     protected $casts = [
         'date' => 'datetime'
@@ -23,6 +25,6 @@ class Product extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->morphedByMany(User::class,'audience');
     }
 }

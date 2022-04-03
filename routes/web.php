@@ -6,6 +6,7 @@ use App\Http\Controllers\Main\ProductController;
 use App\Http\Controllers\Main\SpeakerController;
 use App\Http\Controllers\Main\SuggestionController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,11 @@ Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],functi
     Route::group(['prefix' => 'profile','as' => 'profile::'],function (){
         Route::get('/', [ProfileController::class,'index'])->name('index');
         Route::put('/', [ProfileController::class,'update'])->name('update');
+    });
 
+    Route::group(['prefix' => 'product','as' => 'product::'],function (){
+        Route::get('/', [UserProductController::class,'index'])->name('index');
+        Route::post('/', [UserProductController::class,'store'])->name('store');
+        Route::put('/{product}', [UserProductController::class,'update'])->name('update');
     });
 });
