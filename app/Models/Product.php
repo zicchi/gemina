@@ -23,8 +23,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function users()
+    public function initiator()
     {
-        return $this->morphedByMany(User::class,'audience');
+        return $this->morphTo();
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

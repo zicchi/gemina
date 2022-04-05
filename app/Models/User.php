@@ -46,8 +46,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function products()
+    public function orders()
     {
-        return $this->morphToMany(Product::class,'audience');
+        return $this->hasMany(Order::class);
     }
 }

@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $events = Product::where('initiator_id',auth('user')->user()->id)->where('initiator_type',User::class);
-        $joinedEvents = auth('user')->user()->products()->count();
+        $joinedEvents = auth('user')->user()->orders()->count();
         return view('pages.user.dashboard',[
             'events' => $events,
             'joinedEvents' => $joinedEvents,

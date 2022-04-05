@@ -32,11 +32,12 @@
                     <div class="single-pro-block">
                         <div class="single-pro-inner">
                             <div class="row">
+                                @include('shared.errors')
                                 <div class="single-pro-img single-pro-img-no-sidebar">
                                     <div class="single-product-scroll">
                                         <div class="single-product-cover">
                                             <div class="single-slide zoom-image-hover">
-                                                <img class="img-responsive" src="{{asset('main/assets/images/product-360/1_1.jpg')}}"
+                                                <img class="img-responsive" src="{{$product->image_url}}"
                                                      alt="">
                                             </div>
                                         </div>
@@ -47,7 +48,7 @@
                                         <h5 class="ec-single-title">{{$product->name}}</h5>
                                         <div class="ec-single-desc">{{$product->description}}</div>
                                         <dt>Penyelenggara</dt>
-                                        <dd></dd>
+                                        <dd>{{$product->initiator->name}}</dd>
 
                                         <div class="ec-single-price-stoke">
                                             <div class="ec-single-price">
@@ -64,11 +65,23 @@
                                                 <span class="ec-single-sku">{{$product->capacity}}</span>
                                             </div>
                                         </div>
-                                        <div class="ec-single-qty">
-                                            <div class="ec-single-cart ">
-                                                <button class="btn btn-primary">Add To Cart</button>
-                                            </div>
-                                        </div>
+                                        @if(auth('user')->user())
+                                            @if($check == null)
+                                                @if($product->capacity >= $product->orders()->count())
+                                                    <div class="ec-single-qty">
+                                                        <div class="ec-single-cart ">
+                                                            <a href="{{route('main::product::join',[$product])}}" class="btn btn-primary">Daftar</a>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @else
+                                                <div class="ec-single-qty">
+                                                    <div class="ec-single-cart ">
+                                                        <a href="#" class="btn btn-secondary disabled">Anda sudah terdaftar</a>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>

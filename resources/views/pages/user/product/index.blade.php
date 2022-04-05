@@ -52,7 +52,7 @@
                             <div class="row justify-content-center ec-vendor-detail">
                                 <div class="col-6">
                                     <h6 class="text-uppercase">Peserta</h6>
-                                    <h5>{{$event->users()->count()}}</h5>
+                                    <h5>{{$event->orders()->count()}}</h5>
                                 </div>
                                 <div class="col-6">
                                     <h6 class="text-uppercase">Kapasitas</h6>
@@ -64,6 +64,10 @@
                 </div>
             @endforeach
 
+        </div>
+
+        <div class="my-3">
+            {{$events->links()}}
         </div>
     </div>
 
@@ -85,8 +89,7 @@
                                 <a type="button" class="dropdown-item" data-bs-toggle="modal" href="#editEvent-{{$event->id}}" aria-label="Close">
                                     Edit
                                 </a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="{{route('user::product::audience',['product' => $event])}}">Pendaftar</a>
                             </div>
                         </div>
 

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Helpers\Traits\ImageUploader;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $events = Product::where('initiator_id',auth('user')->user()->id)->where('initiator_type',User::class)->get();
+        $events = Product::where('initiator_id',auth('user')->user()->id)->where('initiator_type',User::class)->paginate(15);
         $categories = Category::all();
         return view('pages.user.product.index',[
             'events' => $events,
@@ -41,11 +43,13 @@ class ProductController extends Controller
         $product->date = Carbon::parse($request->input('date'));
         $product->image = '';
 
-        $this->setImageUploadPath('product/'.auth('user')->user()->id);
-        $filename = $this->uploadImage($request);
-        if ($filename)
-        {
-            $product->image = $filename;
+        if ($request->file('image')){
+            $this->setImageUploadPath('product/'.auth('user')->user()->id);
+            $filename = $this->uploadImage($request);
+            if ($filename)
+            {
+                $product->image = $filename;
+            }
         }
         $product->save();
 
@@ -75,9 +79,43 @@ class ProductController extends Controller
             {
                 $product->image = $filename;
             }
-            $product->save();
         }
+        $product->save();
 
         return redirect()->route('user::product::index');
+    }
+
+    public function myEvents()
+    {
+        $events  = Product::whereHas('orders',function ($q){
+            $q->where('user_id',auth('user')->user()->id);
+        })->get();
+
+        return view('pages.user.product.my-product',[
+            'events' => $events,
+        ]);
+    }
+
+    public function audience(Product $product)
+    {
+        $users  = User::whereHas('orders',function ($q) use ($product){
+            $q->where('product_id',$product->id);
+        })->get();
+
+        return view('pages.user.product.user',[
+            'users' => $users,
+            'product' => $product,
+        ]);
+    }
+
+    public function generateCertificates(Product $product,User $user)
+    {
+
+        $pdf = PDF::loadView('pdf.certificates',[
+            'user' => $user,
+            'product' => $product,
+        ]);
+
+        return $pdf->download('certificates.pdf');
     }
 }

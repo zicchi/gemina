@@ -28,6 +28,7 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
     Route::group(['prefix'=>'product','as' => 'product::'],function (){
         Route::get('/',[ProductController::class,'index'])->name('index');
         Route::get('/show/{product}',[ProductController::class,'show'])->name('show');
+        Route::get('/show/{product}/join/',[ProductController::class,'join'])->name('join');
     });
     Route::group(['prefix'=>'speaker','as' => 'speaker::'],function (){
         Route::get('/',[SpeakerController::class,'index'])->name('index');
@@ -51,9 +52,12 @@ Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],functi
         Route::put('/', [ProfileController::class,'update'])->name('update');
     });
 
-    Route::group(['prefix' => 'product','as' => 'product::'],function (){
+    Route::group(['prefix' => 'events','as' => 'product::'],function (){
         Route::get('/', [UserProductController::class,'index'])->name('index');
         Route::post('/', [UserProductController::class,'store'])->name('store');
         Route::put('/{product}', [UserProductController::class,'update'])->name('update');
+        Route::get('/my-events', [UserProductController::class,'myEvents'])->name('myEvents');
+        Route::get('/{product}/audience', [UserProductController::class,'audience'])->name('audience');
+        Route::get('/{product}/audience/{user}/certificates', [UserProductController::class,'generateCertificates'])->name('certificates');
     });
 });
