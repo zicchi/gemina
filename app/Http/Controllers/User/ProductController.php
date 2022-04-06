@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\UsersExport;
 use App\Helpers\Traits\ImageUploader;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -11,6 +12,8 @@ use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -117,5 +120,10 @@ class ProductController extends Controller
         ]);
 
         return $pdf->download('certificates.pdf');
+    }
+
+    public function generateExcel(Product $product)
+    {
+        return Excel::download(new UsersExport($product), Str::slug($product->name).'-user.xlsx');
     }
 }

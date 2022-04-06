@@ -42,6 +42,8 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
 
     Route::get('/login',[LoginController::class,'index'])->name('login');
     Route::post('/login',[LoginController::class,'login'])->name('postLogin');
+    Route::get('/register',[LoginController::class,'register'])->name('register');
+    Route::post('/register',[LoginController::class,'store'])->name('postRegister');
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
 
@@ -58,6 +60,8 @@ Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],functi
         Route::put('/{product}', [UserProductController::class,'update'])->name('update');
         Route::get('/my-events', [UserProductController::class,'myEvents'])->name('myEvents');
         Route::get('/{product}/audience', [UserProductController::class,'audience'])->name('audience');
+        Route::get('/{product}/audience/excel', [UserProductController::class,'generateExcel'])->name('excel');
         Route::get('/{product}/audience/{user}/certificates', [UserProductController::class,'generateCertificates'])->name('certificates');
+
     });
 });

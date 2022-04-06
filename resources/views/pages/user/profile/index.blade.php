@@ -18,7 +18,11 @@
                     <div class="profile-content-left profile-left-spacing">
                         <div class="text-center widget-profile px-0 border-0">
                             <div class="card-img mx-auto rounded-circle">
-                                <img src="{{$user->thumb_image_url}}" alt="user image">
+                                @if($user->image == '')
+                                    <img src="{{asset('admin/assets/img/user/u8 - Copy.jpg')}}" alt="user image">
+                                @else
+                                    <img src="{{$user->thumb_image_url}}" alt="user image">
+                                @endif
                             </div>
                             <div class="card-body">
                                 <h4 class="py-2 text-dark">{{$user->name}}</h4>
