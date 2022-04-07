@@ -9,7 +9,7 @@
             <p class="breadcrumbs">
                 <span><a href="{{route('user::index')}}">Home</a></span>
                 <span><i class="mdi mdi-chevron-right"></i><a href="{{route('user::product::index')}}">Seminar</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Vendor
+                <span><i class="mdi mdi-chevron-right"></i></span>@yield('title')
 
             </p>
         </div>

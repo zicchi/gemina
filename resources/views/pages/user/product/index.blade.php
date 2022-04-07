@@ -19,50 +19,58 @@
     <div class="card card-default p-4 ec-card-space">
         <div class="ec-vendor-card mt-m-24px row">
 
-            @foreach($events as $event)
-                <div class="col-lg-6 col-xl-4 col-xxl-3">
-                    <div class="card card-default mt-24px">
-                        <a href="javascript:0" data-bs-toggle="modal" data-bs-target="#modal-event-{{$event->id}}"
-                           class="view-detail"><i class="mdi mdi-eye-plus-outline"></i>
-                        </a>
-                        <div class="vendor-info card-body text-center p-4">
-                            <a href="javascript:0" class="text-secondary d-inline-block mb-3">
-                                <div class="image mb-3">
-                                    <img src="{{$event->thumb_image_url}}" class="img-fluid rounded-circle"
-                                         alt="Avatar Image">
-                                </div>
-
-                                <h5 class="card-title text-dark">{{$event->name}}</h5>
-
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-1">
-                                        <i class="mdi mdi-cellphone-basic mr-1"></i>
-                                        <span>{{$event->contact}}</span>
-                                    </li>
-                                    <li class="d-flex mb-1">
-                                        <i class="mdi mdi-calendar mr-1"></i>
-                                        <span>{{\Illuminate\Support\Carbon::simpleDatetime($event->date)}}</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <i class="mdi mdi-currency-usd mr-1"></i>
-                                        <span>{{$event->fee > 0 ? \Illuminate\Support\Str::currency($event->fee,'Rp. ') : 'Free'}}</span>
-                                    </li>
-                                </ul>
+            @if($events->count() > 0)
+                @foreach($events as $event)
+                    <div class="col-lg-6 col-xl-4 col-xxl-3">
+                        <div class="card card-default mt-24px">
+                            <a href="javascript:0" data-bs-toggle="modal" data-bs-target="#modal-event-{{$event->id}}"
+                               class="view-detail"><i class="mdi mdi-eye-plus-outline"></i>
                             </a>
-                            <div class="row justify-content-center ec-vendor-detail">
-                                <div class="col-6">
-                                    <h6 class="text-uppercase">Peserta</h6>
-                                    <h5>{{$event->orders()->count()}}</h5>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="text-uppercase">Kapasitas</h6>
-                                    <h5>{{$event->capacity}}</h5>
+                            <div class="vendor-info card-body text-center p-4">
+                                <a href="javascript:0" class="text-secondary d-inline-block mb-3">
+                                    <div class="image mb-3">
+                                        <img src="{{$event->thumb_image_url}}" class="img-fluid rounded-circle"
+                                             alt="Avatar Image">
+                                    </div>
+
+                                    <h5 class="card-title text-dark">{{$event->name}}</h5>
+
+                                    <ul class="list-unstyled">
+                                        <li class="d-flex mb-1">
+                                            <i class="mdi mdi-cellphone-basic mr-1"></i>
+                                            <span>{{$event->contact}}</span>
+                                        </li>
+                                        <li class="d-flex mb-1">
+                                            <i class="mdi mdi-calendar mr-1"></i>
+                                            <span>{{\Illuminate\Support\Carbon::simpleDatetime($event->date)}}</span>
+                                        </li>
+                                        <li class="d-flex">
+                                            <i class="mdi mdi-currency-usd mr-1"></i>
+                                            <span>{{$event->fee > 0 ? \Illuminate\Support\Str::currency($event->fee,'Rp. ') : 'Free'}}</span>
+                                        </li>
+                                    </ul>
+                                </a>
+                                <div class="row justify-content-center ec-vendor-detail">
+                                    <div class="col-6">
+                                        <h6 class="text-uppercase">Peserta</h6>
+                                        <h5>{{$event->orders()->count()}}</h5>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 class="text-uppercase">Kapasitas</h6>
+                                        <h5>{{$event->capacity}}</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                @endforeach
+            @else
+                <div class="text-center mt-2">
+                Belum ada seminar <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                          data-bs-target="#addVendor">Adakan Seminar
+                    </button>
                 </div>
-            @endforeach
+            @endif
 
         </div>
 

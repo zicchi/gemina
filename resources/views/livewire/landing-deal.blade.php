@@ -15,7 +15,11 @@
                             <div class="ec-spe-pro-inner">
                                 <div class="ec-spe-pro-image-outer col-md-6 col-sm-12">
                                     <div class="ec-spe-pro-image">
-                                        <img class="img-responsive" src="{{asset('main/assets/images/product-image/77_1.jpg')}}" alt="">
+                                        @if($product->image == '')
+                                            <img class="img-responsive" src="{{asset('main/assets/images/product-image/77_1.jpg')}}" alt="">
+                                        @else
+                                            <img class="img-responsive" src="{{$product->thumb_image_url}}" alt="">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="ec-spe-pro-content col-md-6 col-sm-12">
@@ -29,7 +33,7 @@
                                     </div>
                                     <div class="ec-spe-pro-progress">
                                         <span class="ec-spe-pro-progress-desc"><span>Slot terisi:
-                                                <b>20</b></span><span>Kapasitas: <b>{{$product->capacity}}</b></span></span>
+                                                <b>{{$product->orders()->count()}}</b></span><span>Kapasitas: <b>{{$product->capacity}}</b></span></span>
                                     </div>
                                     <div class="countdowntimer">
                                         <span class="ec-spe-count-desc">Menuju kegiatan :</span>

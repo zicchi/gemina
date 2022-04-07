@@ -1,16 +1,18 @@
 @extends('layout.user.template')
 @section('title')
+    Kunjunganku
 @endsection
 @section('content')
     <div class="breadcrumb-wrapper breadcrumb-contacts">
         <div>
-            <h1>Vendor List</h1>
-            <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Vendor</p>
+            <h1>Seminar yang didaftarkan</h1>
+            <span><a href="{{route('user::index')}}">Home</a></span>
+            <span><i class="mdi mdi-chevron-right"></i><a href="{{route('user::product::index')}}">Seminar</a></span>
+            <span><i class="mdi mdi-chevron-right"></i></span>@yield('title')
         </div>
         <div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVendor"> Add Vendor
-            </button>
+            <a href="{{route('main::product::index')}}" class="btn btn-primary"> Katalog
+            </a>
         </div>
     </div>
     <div class="row">
