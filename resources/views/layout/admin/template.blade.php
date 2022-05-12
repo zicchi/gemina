@@ -34,15 +34,15 @@
 <div class="wrapper">
 
     <!-- LEFT MAIN SIDEBAR -->
-    @include('includes.user.sidenav')
+@include('includes.admin.sidenav')
 
-    <!--  PAGE WRAPPER -->
+<!--  PAGE WRAPPER -->
     <div class="ec-page-wrapper">
 
         <!-- Header -->
-    @include('includes.user.header')
+    @include('includes.admin.header')
 
-        <!-- CONTENT WRAPPER -->
+    <!-- CONTENT WRAPPER -->
         <div class="ec-content-wrapper">
             <div class="content">
                 @yield('content')
@@ -66,7 +66,7 @@
 <script src="{{asset('admin/assets/plugins/jquery/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('admin/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('admin/assets/plugins/simplebar/simplebar.min.js')}}"></script>
-{{--<script src="{{asset('admin/assets/plugins/jquery-zoom/jquery.zoom.min.js')}}"></script>--}}
+<script src="{{asset('admin/assets/plugins/jquery-zoom/jquery.zoom.min.js')}}"></script>
 <script src="{{asset('admin/assets/plugins/slick/slick.min.js')}}"></script>
 
 <!-- Chart -->
@@ -87,6 +87,7 @@
 
 <!-- Ekka Custom -->
 <script src="{{asset('admin/assets/js/ekka.js')}}"></script>
+@stack('bottom')
 </body>
 
 </html>

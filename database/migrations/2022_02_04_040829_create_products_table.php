@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->morphs('initiator');
             $table->dateTime('date');
             $table->bigInteger('category_id')->index();
-            $table->decimal('fee');
+            $table->decimal('fee',14,2);
             $table->boolean('activated')->default(true);
             $table->integer('capacity');
             $table->string('image');
@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->string('speaker');
             $table->string('place');
             $table->string('contact');
-            $table->integer('status')->default(0);
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }

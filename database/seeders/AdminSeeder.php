@@ -19,7 +19,8 @@ class AdminSeeder extends Seeder
         Admin::factory()->create([
             'username' => 'dev',
             'password' => Hash::make('dev'),
-            'name' => 'Dev'
+            'name' => 'Dev',
+            'role' => 'superadmin'
         ]);
         Admin::factory()->count(9)->create();
     }

@@ -22,5 +22,9 @@ class ProductSeeder extends Seeder
             'date' => now()->subDay(),
             'activated' => false,
         ]);
+
+        Product::factory()->count(2)->create([
+            'verified' => false
+        ]);
     }
 }

@@ -62,12 +62,6 @@
 
 <table class="cert">
     <tr>
-        <td align="center" class="crt_logo">
-            <img src="https://www.davidbenrimon.com/files-wide/uploads/logo-placeholder@2x.png" alt="logo">
-
-        </td>
-    </tr>
-    <tr>
         <td align="center">
             <h1 class="crt_title">Certificate Of Participation</h1>
                 <h2>This Certificate is awarded to</h2>

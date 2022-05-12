@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Auth\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Auth\User\LoginController;
 use App\Http\Controllers\Main\FaqController;
 use App\Http\Controllers\Main\ProductController;
@@ -28,7 +32,7 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
     Route::group(['prefix'=>'product','as' => 'product::'],function (){
         Route::get('/',[ProductController::class,'index'])->name('index');
         Route::get('/show/{product}',[ProductController::class,'show'])->name('show');
-        Route::get('/show/{product}/join/',[ProductController::class,'join'])->name('join');
+        Route::get('/show/{product}/join/',[ProductController::class,'join'])->name('join')->middleware('user');
     });
     Route::group(['prefix'=>'speaker','as' => 'speaker::'],function (){
         Route::get('/',[SpeakerController::class,'index'])->name('index');
@@ -40,15 +44,21 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
         Route::post('/',[SuggestionController::class,'store'])->name('store');
     });
 
+    // User Authentication
     Route::get('/login',[LoginController::class,'index'])->name('login');
     Route::post('/login',[LoginController::class,'login'])->name('postLogin');
     Route::get('/register',[LoginController::class,'register'])->name('register');
     Route::post('/register',[LoginController::class,'store'])->name('postRegister');
-    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+
+    // Admin Authentication
+    Route::get('/office/admin/login',[AdminLoginController::class,'index'])->name('admin::auth::index');
+    Route::post('/office/admin/login',[AdminLoginController::class,'login'])->name('admin::auth::login');
 });
 
 Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],function (){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('index');
+    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
     Route::group(['prefix' => 'profile','as' => 'profile::'],function (){
         Route::get('/', [ProfileController::class,'index'])->name('index');
         Route::put('/', [ProfileController::class,'update'])->name('update');
@@ -57,11 +67,28 @@ Route::group(['middleware' => 'user','prefix' => 'user','as' => 'user::'],functi
     Route::group(['prefix' => 'events','as' => 'product::'],function (){
         Route::get('/', [UserProductController::class,'index'])->name('index');
         Route::post('/', [UserProductController::class,'store'])->name('store');
-        Route::put('/{product}', [UserProductController::class,'update'])->name('update');
+        Route::put('/update/{product}', [UserProductController::class,'update'])->name('update');
         Route::get('/my-events', [UserProductController::class,'myEvents'])->name('myEvents');
         Route::get('/{product}/audience', [UserProductController::class,'audience'])->name('audience');
         Route::get('/{product}/audience/excel', [UserProductController::class,'generateExcel'])->name('excel');
         Route::get('/{product}/audience/{user}/certificates', [UserProductController::class,'generateCertificates'])->name('certificates');
+        Route::get('/{product}', [UserProductController::class,'show'])->name('show');
 
+    });
+});
+
+Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin::'],function (){
+    Route::get('/dashboard',[HomeController::class,'index'])->name('index');
+    Route::get('/logout',[AdminLoginController::class,'logout'])->name('logout');
+
+    Route::group(['prefix' => 'admins','as' => 'admins::'],function (){
+        Route::get('/',[AdminController::class,'index'])->name('index');
+        Route::post('/',[AdminController::class,'store'])->name('store');
+    });
+
+    Route::group(['prefix' => 'event','as' => 'event::'],function (){
+        Route::get('/',[AdminProductController::class,'index'])->name('index');
+        Route::get('/{product}',[AdminProductController::class,'show'])->name('show');
+        Route::get('/verify/{product}',[AdminProductController::class,'verify'])->name('verify');
     });
 });

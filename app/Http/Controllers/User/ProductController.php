@@ -85,7 +85,7 @@ class ProductController extends Controller
         }
         $product->save();
 
-        return redirect()->route('user::product::index');
+        return redirect()->route('user::product::show',[$product]);
     }
 
     public function myEvents()
@@ -111,13 +111,22 @@ class ProductController extends Controller
         ]);
     }
 
+    public function show(Product $product)
+    {
+        $categories = Category::all();
+        return view('pages.user.product.show',[
+            'product' => $product,
+            'categories' => $categories,
+        ]);
+    }
+
     public function generateCertificates(Product $product,User $user)
     {
 
         $pdf = PDF::loadView('pdf.certificates',[
             'user' => $user,
             'product' => $product,
-        ]);
+        ])->setPaper('a5','landscape');
 
         return $pdf->download('certificates.pdf');
     }

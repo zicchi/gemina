@@ -22,6 +22,8 @@ class MainSearch extends Component
             ->when($this->category_id > 0,function ($q){
                 $q->where('category_id',$this->category_id);
             })
+            ->where('activated',true)
+            ->where('verified',true)
             ->paginate();
         $categories = Category::all();
         return view('livewire.main-search',[

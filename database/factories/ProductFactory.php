@@ -28,7 +28,8 @@ class ProductFactory extends Factory
             'image' => '',
             'speaker' => $this->faker->name,
             'place' => $this->faker->address,
-            'contact' => $this->faker->phoneNumber(),
+            'contact' => $this->faker->numerify('0812########'),
+            'verified' => true,
         ];
     }
 }
