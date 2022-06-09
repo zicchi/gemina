@@ -19,6 +19,11 @@
         <div class="col-12">
             <div class="ec-vendor-list card card-default">
                 <div class="card-body">
+                    <form action="{{route('user::product::myEvents')}}">
+                        <div class="form-group">
+                            <input type="search" class="form-control" placeholder="Cari ..." name="q">
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table id="responsive-data-table" class="table">
                             <thead>
@@ -60,5 +65,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="my-3">
+        {{$events->links()}}
     </div>
 @endsection

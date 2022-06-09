@@ -34,6 +34,42 @@
                     </a>
                     <hr>
                 </li>
+                <li class="{{request()->is('office/admin/user*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('admin::user::index')}}">
+                        <i class="mdi mdi-account"></i>
+                        <span class="nav-text">User</span>
+                    </a>
+                    <hr>
+                </li>
+                <li class="{{request()->is('office/admin/faq*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('admin::faq::index')}}">
+                        <i class="mdi mdi-comment-question-outline"></i>
+                        <span class="nav-text">FAQ</span>
+                    </a>
+                    <hr>
+                </li>
+
+                <li class="{{request()->is('office/admin/category*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('admin::category::index')}}">
+                        <i class="mdi mdi-format-list-bulleted-type"></i>
+                        <span class="nav-text">Category</span>
+                    </a>
+                    <hr>
+                </li>
+                <li class="{{request()->is('office/admin/suggestion*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('admin::suggestion::index')}}">
+                        <i class="mdi mdi-comment-processing-outline"></i>
+                        <span class="nav-text">Suggestion</span>
+                    </a>
+                    <hr>
+                </li>
+                <li class="{{request()->is('office/admin/speaker*') ? 'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('admin::speakers::index')}}">
+                        <i class="mdi mdi-bullhorn-outline"></i>
+                        <span class="nav-text">Speaker</span>
+                    </a>
+                    <hr>
+                </li>
             </ul>
         </div>
     </div>

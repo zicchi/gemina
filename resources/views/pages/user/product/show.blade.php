@@ -11,9 +11,9 @@
                 <span><i class="mdi mdi-chevron-right"></i></span>@yield('title')
             </p>
         </div>
-        <div>
-            <a href="javascript:0" data-bs-target="#editEvent" data-bs-toggle="modal" class="btn btn-primary"> Edit
-            </a>
+        <div class="btn-group">
+            <a href="javascript:0" data-bs-target="#editEvent" data-bs-toggle="modal" class="btn btn-primary">Edit</a>
+            <a href="{{route('user::product::audience',[$product])}}" class="btn btn-success">Peserta</a>
         </div>
     </div>
     <div class="row">

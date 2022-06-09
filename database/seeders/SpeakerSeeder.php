@@ -15,7 +15,13 @@ class SpeakerSeeder extends Seeder
     public function run()
     {
         Speaker::truncate();
-        Speaker::factory()->count(10)->create();
+        Speaker::factory()->count(10)->create([
+            'activated' => true
+        ]);
+
+        Speaker::factory()->count(2)->create([
+            'activated' => false
+        ]);
 
     }
 }

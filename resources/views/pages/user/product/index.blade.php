@@ -17,8 +17,12 @@
     </div>
 
     <div class="card card-default p-4 ec-card-space">
+        <div class="mb-3">
+            <form action="{{route('user::product::index')}}">
+                <input type="search" class="form-control" placeholder="Cari ..." name="q">
+            </form>
+        </div>
         <div class="ec-vendor-card mt-m-24px row">
-
             @if($events->count() > 0)
                 @foreach($events as $event)
                     <div class="col-lg-6 col-xl-4 col-xxl-3">

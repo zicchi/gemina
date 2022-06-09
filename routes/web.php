@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FAQController as FAQControllerAlias;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\SpeakerController as AdminSpeakerController;
+use App\Http\Controllers\Admin\SuggestionController as AdminSuggestionController;
+use App\Http\Controllers\Admin\UserController as AdminUserControllerAlias;
 use App\Http\Controllers\Auth\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Auth\User\LoginController;
 use App\Http\Controllers\Main\FaqController;
@@ -36,6 +41,8 @@ Route::group(['prefix' => '/','as' => 'main::'],function (){
     });
     Route::group(['prefix'=>'speaker','as' => 'speaker::'],function (){
         Route::get('/',[SpeakerController::class,'index'])->name('index');
+        Route::get('/register',[AdminSpeakerController::class,'registerForm'])->name('register-form');
+        Route::post('/register',[AdminSpeakerController::class,'register'])->name('register');
 //        Route::get('/show/{speaker}',[ProductController::class,'show'])->name('show');
     });
     Route::get('/faq',[FaqController::class,'index'])->name('faq');
@@ -81,14 +88,48 @@ Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin
     Route::get('/dashboard',[HomeController::class,'index'])->name('index');
     Route::get('/logout',[AdminLoginController::class,'logout'])->name('logout');
 
+    Route::get('/profile',[\App\Http\Controllers\Admin\ProfileController::class,'index'])->name('profile::index');
+    Route::put('/profile',[\App\Http\Controllers\Admin\ProfileController::class,'update'])->name('profile::update');
+
     Route::group(['prefix' => 'admins','as' => 'admins::'],function (){
         Route::get('/',[AdminController::class,'index'])->name('index');
         Route::post('/',[AdminController::class,'store'])->name('store');
+        Route::put('/{admin}/update',[AdminController::class,'update'])->name('update');
     });
 
     Route::group(['prefix' => 'event','as' => 'event::'],function (){
         Route::get('/',[AdminProductController::class,'index'])->name('index');
         Route::get('/{product}',[AdminProductController::class,'show'])->name('show');
+        Route::put('/{product}',[AdminProductController::class,'update'])->name('update');
         Route::get('/verify/{product}',[AdminProductController::class,'verify'])->name('verify');
+    });
+
+    Route::group(['prefix' => 'user','as' => 'user::'],function (){
+        Route::get('/',[AdminUserControllerAlias::class,'index'])->name('index');
+        Route::post('/store',[AdminUserControllerAlias::class,'store'])->name('store');
+        Route::get('/{user}',[AdminUserControllerAlias::class,'show'])->name('show');
+        Route::put('/{user}/update',[AdminUserControllerAlias::class,'update'])->name('update');
+    });
+
+    Route::group(['prefix' => 'faq','as' => 'faq::'],function (){
+        Route::get('/',[FAQControllerAlias::class,'index'])->name('index');
+        Route::post('/store',[FAQControllerAlias::class,'store'])->name('store');
+        Route::put('/update',[FAQControllerAlias::class,'update'])->name('update');
+    });
+
+    Route::group(['prefix' => 'category','as' => 'category::'],function (){
+        Route::get('/',[CategoryController::class,'index'])->name('index');
+        Route::post('/store',[CategoryController::class,'store'])->name('store');
+        Route::put('/{category}/update',[CategoryController::class,'update'])->name('update');
+    });
+
+    Route::group(['prefix' => 'suggestion','as' => 'suggestion::'],function (){
+        Route::get('/',[AdminSuggestionController::class,'index'])->name('index');
+    });
+
+    Route::group(['prefix' => 'speakers','as' => 'speakers::'],function (){
+        Route::get('/',[\App\Http\Controllers\Admin\SpeakerController::class,'index'])->name('index');
+        Route::put('/{speaker}',[\App\Http\Controllers\Admin\SpeakerController::class,'update'])->name('update');
+        Route::get('/{speaker}/activate',[\App\Http\Controllers\Admin\SpeakerController::class,'activate'])->name('activate');
     });
 });

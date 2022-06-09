@@ -63,4 +63,8 @@
             </div>
         </div>
     </div>
+
+    <div class="my-3">
+        {{$products->links()}}
+    </div>
 @endsection

@@ -21,7 +21,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        $events = Product::where('initiator_id',auth('user')->user()->id)->where('initiator_type',User::class)->paginate(15);
+        $events = Product::where('initiator_id',auth('user')->user()->id)->where('initiator_type',User::class)
+            ->when(\request()->filled('q'),function ($q){
+                $q->where('name','like',"%".\request()->input('q')."%");
+            })
+            ->paginate(9);
         $categories = Category::all();
         return view('pages.user.product.index',[
             'events' => $events,
@@ -44,11 +48,10 @@ class ProductController extends Controller
         $product->contact = $request->input('contact');
         $product->online = $request->input('online');
         $product->date = Carbon::parse($request->input('date'));
-        $product->image = '';
 
         if ($request->file('image')){
             $this->setImageUploadPath('product/'.auth('user')->user()->id);
-            $filename = $this->uploadImage($request);
+            $filename = $this->uploadImage($request,'image',800,700);
             if ($filename)
             {
                 $product->image = $filename;
@@ -73,11 +76,10 @@ class ProductController extends Controller
         $product->contact = $request->input('edit-contact');
         $product->online = $request->input('edit-online');
         $product->date = Carbon::parse($request->input('edit-date'));
-        $product->image = '';
 
         if ($request->file('edit-image')){
             $this->setImageUploadPath('product/'.auth('user')->user()->id);
-            $filename = $this->uploadImage($request,'edit-image');
+            $filename = $this->uploadImage($request,'edit-image',700,800);
             if ($filename)
             {
                 $product->image = $filename;
@@ -92,7 +94,10 @@ class ProductController extends Controller
     {
         $events  = Product::whereHas('orders',function ($q){
             $q->where('user_id',auth('user')->user()->id);
-        })->get();
+        })->when(\request()->filled('q'),function ($q){
+            $q->where('name','like',"%".\request()->input('q')."%");
+        })
+            ->paginate();
 
         return view('pages.user.product.my-product',[
             'events' => $events,
@@ -103,7 +108,10 @@ class ProductController extends Controller
     {
         $users  = User::whereHas('orders',function ($q) use ($product){
             $q->where('product_id',$product->id);
-        })->get();
+        })->
+            when(\request()->filled('q'),function ($q){
+                $q->where('name','like',"%".\request()->input('q')."%");
+        })->paginate(5);
 
         return view('pages.user.product.user',[
             'users' => $users,

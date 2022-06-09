@@ -21,10 +21,11 @@ class CreateSpeakersTable extends Migration
             $table->string('bio');
             $table->string('instance');
             $table->string('image');
-            $table->string('cvUrl')->nullable();
+            $table->string('cv_url')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
             $table->string('dribbble')->nullable();
+            $table->boolean('activated')->default(false);
             $table->timestamps();
         });
     }

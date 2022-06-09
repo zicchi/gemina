@@ -1,28 +1,25 @@
 @extends('layout.admin.template')
 @section('title')
-    {{$product->name}}
+    {{$user->name}}
 @endsection
 @section('content')
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
             <h1>@yield('title')</h1>
             <p class="breadcrumbs"><span><a href="{{route('admin::index')}}">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span><span><a href="{{route('admin::event::index')}}">Event</a></span>
+                <span><i class="mdi mdi-chevron-right"></i></span><span><a href="{{route('admin::user::index')}}">User</a></span>
                 <span><i class="mdi mdi-chevron-right"></i></span>@yield('title')
             </p>
         </div>
         <div class="btn-group">
-            <a href="javascript:0" data-bs-toggle="modal" data-bs-target="#editEvent" class="btn btn-primary">Edit</a>
-            @if(!$product->verified)
-                <a href="{{route('admin::event::verify',[$product])}}" class="btn btn-success">Verifikasi</a>
-            @endif
+            <a href="javascript:0" data-bs-toggle="modal" data-bs-target="#editUser" class="btn btn-primary">Edit</a>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                    <h2>Product Detail</h2>
+                    <h2>User Detail</h2>
                 </div>
 
                 <div class="card-body product-detail">
@@ -34,7 +31,7 @@
                                         <div class="single-product-cover">
                                             <div class="single-slide">
                                                 <img class="img-responsive"
-                                                     src="{{$product->thumb_image_url}}" alt="">
+                                                     src="{{$user->thumb_image_url}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -47,23 +44,23 @@
                                     <ul class="nav nav-tabs" id="myRatingTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active"
-                                               id="product-detail-tab" data-bs-toggle="tab"
-                                               data-bs-target="#productdetail" href="#productdetail" role="tab"
+                                               id="user-detail-tab" data-bs-toggle="tab"
+                                               data-bs-target="#userdetail" href="#userdetail" role="tab"
                                                aria-selected="true">
                                                 <i class="mdi mdi-library-books mr-1"></i> Detail</a>
                                         </li>
 
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                               id="product-information-tab" data-bs-toggle="tab"
-                                               data-bs-target="#productinformation" href="#productinformation"
+                                               id="user-information-tab" data-bs-toggle="tab"
+                                               data-bs-target="#userinformation" href="#userinformation"
                                                role="tab" aria-selected="false">
                                                 <i class="mdi mdi-information mr-1"></i>Info</a>
                                         </li>
 
                                     </ul>
                                     <div class="tab-content" id="myTabContent2">
-                                        <div class="tab-pane pt-3 fade show active" id="productdetail"
+                                        <div class="tab-pane pt-3 fade show active" id="userdetail"
                                              role="tabpanel">
                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry.
@@ -77,14 +74,14 @@
                                                 unchanged.
                                             </p>
                                             <ul class="features">
-                                                <li>Any Product types that You want - Simple, Configurable</li>
-                                                <li>Downloadable/Digital Products, Virtual Products</li>
+                                                <li>Any user types that You want - Simple, Configurable</li>
+                                                <li>Downloadable/Digital users, Virtual users</li>
                                                 <li>Inventory Management with Backordered items</li>
                                                 <li>Flatlock seams throughout.</li>
                                             </ul>
                                         </div>
 
-                                        <div class="tab-pane pt-3 fade" id="productinformation" role="tabpanel">
+                                        <div class="tab-pane pt-3 fade" id="userinformation" role="tabpanel">
                                             <ul>
                                                 <li><span>Weight</span> 1000 g</li>
                                                 <li><span>Dimensions</span> 35 × 30 × 7 cm</li>
@@ -100,23 +97,24 @@
             </div>
         </div>
     </div>
-    <div class="modal fade modal-add-contact" id="editEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade modal-add-contact" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
-                <form action="{{route('admin::event::show',['product' => $product])}}" enctype="multipart/form-data" method="post">
+                <form action="{{route('admin::user::update',[$user])}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    @method('put')
+                    @method('PUT')
                     <div class="modal-header px-4">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">{{$product->name}}</h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Add user</h5>
                     </div>
 
                     <div class="modal-body px-4">
+
                         <div class="form-group row mb-6">
-                            <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Poster Seminar</label>
+                            <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Foto User</label>
 
                             <div class="col-sm-8 col-lg-10">
                                 <div class="custom-file mb-1">
-                                    <input type="file" class="custom-file-input" id="coverImage" name="edit-image">
+                                    <input type="file" class="custom-file-input" id="coverImage" name="image">
                                     <label class="custom-file-label" for="coverImage">Choose file...</label>
                                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                                 </div>
@@ -126,79 +124,30 @@
                         <div class="row mb-2">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="name">Judul Seminar</label>
-                                    <input type="text" class="form-control" name="edit-name" id="name" value="{{$product->name}}">
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="form-group mb-4">
-                                    <label for="description">Deskripsi</label>
-                                    <textarea class="form-control" name="edit-description" id="description">{{$product->description}}</textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="form-group mb-4">
-                                    <label for="place">Tempat Seminar</label>
-                                    <textarea class="form-control" id="place" name="edit-place">{{$product->place}}</textarea>
-                                    <span class="text-muted">Jika online, isikan dengan link online conference seminar atau kosongi terlebih dahulu</span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group mb-4">
-                                    <label for="capacity">Kapasitas</label>
-                                    <input type="number" class="form-control" id="capacity" name="edit-capacity" value="{{$product->capacity}}">
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group mb-4">
-                                    <label for="product">Fee</label>
-                                    <input type="number" class="form-control" name="edit-fee" id="fee" min="0" value="{{$product->fee}}">
-                                    <span class="text-muted">Input 0 jika seminar tidak berbayar</span>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group mb-4">
-                                    <label for="product">Kategori</label>
-                                    <select name="edit-category_id" id="" class="form-control form-select">
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}" {{$product->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group mb-4">
-                                    <label for="online">Jenis Seminar</label>
-                                    <select name="edit-online" id="" class="form-control form-select">
-                                        <option value="1" {{$product->online ? 'selected' : ''}}>Online</option>
-                                        <option value="0" {{$product->online ? '' : 'selected'}}>Offline</option>
-                                    </select>
+                                    <label for="name">Nama</label>
+                                    <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="speaker">Pembicara</label>
-                                    <input type="text" class="form-control" name="edit-speaker" id="speaker" value="{{$product->speaker}}">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}">
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="contact">Contact Person</label>
-                                    <input type="number" class="form-control" name="edit-contact" id="contact" value="{{$product->contact}}">
+                                    <label for="phone">Phone</label>
+                                    <input type="number" class="form-control" name="phone" id="phone" value="{{$user->phone}}">
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="order_allowed_until">Waktu Seminar</label>
-                                    <input type="datetime-local" dusk="date" id="date" min="{{now()->format('Y-m-d\TH:i')}}" name="edit-date" class="form-control" value="{{\Carbon\Carbon::parse($product->date)->format('Y-m-d\TH:i')}}">
+                                    <label for="password">Password</label>
+                                    <input type="text" class="form-control" name="password" id="password">
+                                    <span class="text-muted">Kosongi jika tidak ingin diubah</span>
                                 </div>
                             </div>
                         </div>

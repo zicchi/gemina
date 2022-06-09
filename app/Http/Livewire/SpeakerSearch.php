@@ -21,6 +21,7 @@ class SpeakerSearch extends Component
             ->when($this->category_id > 0,function ($q){
                 $q->where('category_id',$this->category_id);
             })
+            ->where('activated',true)
             ->paginate();
         $categories = Category::all();
         return view('livewire.speaker-search',[

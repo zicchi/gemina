@@ -29,7 +29,7 @@
                     <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
                         <!-- User image -->
                         <li class="disabled">
-                            <a href="{{route('user::profile::index')}}">
+                            <a href="{{route('admin::profile::index')}}">
                                 <i class="mdi mdi-account"></i> My Profile
                             </a>
                         </li>

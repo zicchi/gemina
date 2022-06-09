@@ -17,7 +17,7 @@
                 <div id="ec-faq">
                     @foreach($faqs as $faq)
                         <div class="col-sm-12 ec-faq-block">
-                            <h4 class="ec-faq-title">{{$faq->question}} ?</h4>
+                            <h4 class="ec-faq-title">{{$faq->question}}</h4>
                             <div class="ec-faq-content">
                                 <p>{{$faq->answer}}</p>
                             </div>
