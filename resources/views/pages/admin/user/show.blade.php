@@ -31,7 +31,7 @@
                                         <div class="single-product-cover">
                                             <div class="single-slide">
                                                 <img class="img-responsive"
-                                                     src="{{$user->thumb_image_url}}" alt="">
+                                                     src="{{$user->thumb_image_url != '' ? $user->thumb_image_url : asset('admin/assets/img/user/u8 - Copy.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -44,14 +44,6 @@
                                     <ul class="nav nav-tabs" id="myRatingTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active"
-                                               id="user-detail-tab" data-bs-toggle="tab"
-                                               data-bs-target="#userdetail" href="#userdetail" role="tab"
-                                               aria-selected="true">
-                                                <i class="mdi mdi-library-books mr-1"></i> Detail</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link"
                                                id="user-information-tab" data-bs-toggle="tab"
                                                data-bs-target="#userinformation" href="#userinformation"
                                                role="tab" aria-selected="false">
@@ -60,32 +52,10 @@
 
                                     </ul>
                                     <div class="tab-content" id="myTabContent2">
-                                        <div class="tab-pane pt-3 fade show active" id="userdetail"
-                                             role="tabpanel">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the
-                                                1500s, when an unknown printer took a galley of type and
-                                                scrambled it to
-                                                make a type specimen book. It has survived not only five
-                                                centuries, but also
-                                                the leap into electronic typesetting, remaining essentially
-                                                unchanged.
-                                            </p>
-                                            <ul class="features">
-                                                <li>Any user types that You want - Simple, Configurable</li>
-                                                <li>Downloadable/Digital users, Virtual users</li>
-                                                <li>Inventory Management with Backordered items</li>
-                                                <li>Flatlock seams throughout.</li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="tab-pane pt-3 fade" id="userinformation" role="tabpanel">
+                                        <div class="tab-pane pt-3 fade show active" id="userinformation" role="tabpanel">
                                             <ul>
-                                                <li><span>Weight</span> 1000 g</li>
-                                                <li><span>Dimensions</span> 35 × 30 × 7 cm</li>
-                                                <li><span>Color</span> Black, Pink, Red, White</li>
+                                                <li><span>Email</span> : {{$user->email}}</li>
+                                                <li><span>Phone</span> : {{$user->phone}}</li>
                                             </ul>
                                         </div>
                                     </div>

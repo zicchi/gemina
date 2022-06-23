@@ -32,7 +32,7 @@
                                 <th>Judul Seminar</th>
                                 <th>Kontak</th>
                                 <th>Status</th>
-                                <th>Join On</th>
+                                <th>Waktu</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -54,7 +54,31 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button"
-                                                    class="btn btn-outline-info">Info</button>
+                                                    class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modal-{{$event->id}}">Info</button>
+                                        </div>
+
+                                        <div class="modal fade" id="modal-{{$event->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">{{$event->name}}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <dt>Speaker</dt>
+                                                        <dd>{{$event->speaker}}</dd>
+                                                        <dt>Alamat / Link</dt>
+                                                        <dd>{{$event->place}}</dd>
+                                                        <dt>Tanggal</dt>
+                                                        <dd>{{\Illuminate\Support\Carbon::simpleDatetime($event->date)}}</dd>
+                                                        <dt>Jenis</dt>
+                                                        <dd>{{$event->online ? 'Online' : 'Offline'}}</dd>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>

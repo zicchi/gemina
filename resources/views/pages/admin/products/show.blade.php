@@ -65,30 +65,20 @@
                                     <div class="tab-content" id="myTabContent2">
                                         <div class="tab-pane pt-3 fade show active" id="productdetail"
                                              role="tabpanel">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever
-                                                since the
-                                                1500s, when an unknown printer took a galley of type and
-                                                scrambled it to
-                                                make a type specimen book. It has survived not only five
-                                                centuries, but also
-                                                the leap into electronic typesetting, remaining essentially
-                                                unchanged.
+                                            <p>{{$product->description}}
                                             </p>
                                             <ul class="features">
-                                                <li>Any Product types that You want - Simple, Configurable</li>
-                                                <li>Downloadable/Digital Products, Virtual Products</li>
-                                                <li>Inventory Management with Backordered items</li>
-                                                <li>Flatlock seams throughout.</li>
+                                                <li>Kategori : {{$product->category->name}}</li>
+                                                <li>Tanggal : {{\Illuminate\Support\Carbon::simpleDatetime($product->date)}}</li>
+                                                <li>Alamat : {{$product->place}}</li>
                                             </ul>
                                         </div>
 
                                         <div class="tab-pane pt-3 fade" id="productinformation" role="tabpanel">
                                             <ul>
-                                                <li><span>Weight</span> 1000 g</li>
-                                                <li><span>Dimensions</span> 35 × 30 × 7 cm</li>
-                                                <li><span>Color</span> Black, Pink, Red, White</li>
+                                                <li>Speaker : {{$product->speaker}}</li>
+                                                <li><span>Fee</span> : {{\Illuminate\Support\Str::currency($product->fee,'Rp. ')}}</li>
+                                                <li><span>Jenis</span> : {{$product->online ? 'Online' : 'Offline'}}</li>
                                             </ul>
                                         </div>
                                     </div>
