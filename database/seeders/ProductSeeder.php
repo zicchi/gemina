@@ -16,14 +16,14 @@ class ProductSeeder extends Seeder
     {
         Product::truncate();
 
-        Product::factory()->count(5)->create();
+        Product::factory()->count(2)->create();
 
-        Product::factory()->count(5)->create([
+        Product::factory()->count(1)->create([
             'date' => now()->subDay(),
             'activated' => false,
         ]);
 
-        Product::factory()->count(2)->create([
+        Product::factory()->count(1)->create([
             'verified' => false
         ]);
     }

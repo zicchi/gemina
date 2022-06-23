@@ -115,14 +115,14 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="name">Judul Seminar</label>
-                                    <input type="text" class="form-control" name="name" id="name">
+                                    <input type="text" class="form-control" name="name" id="name" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div class="form-group mb-4">
                                     <label for="description">Deskripsi</label>
-                                    <textarea class="form-control" name="description" id="description"></textarea>
+                                    <textarea class="form-control" name="description" id="description" required></textarea>
                                 </div>
                             </div>
 
@@ -137,14 +137,14 @@
                             <div class="col-lg-6">
                                 <div class="form-group mb-4">
                                     <label for="capacity">Kapasitas</label>
-                                    <input type="number" class="form-control" id="capacity" name="capacity">
+                                    <input type="number" class="form-control" id="capacity" name="capacity" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group mb-4">
                                     <label for="event">Fee</label>
-                                    <input type="number" class="form-control" name="fee" id="fee" min="0">
+                                    <input type="number" class="form-control" name="fee" id="fee" min="0" required>
                                     <span class="text-muted">Input 0 jika seminar tidak berbayar</span>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group mb-4">
                                     <label for="online">Jenis Seminar</label>
-                                    <select name="online" id="" class="form-control form-select">
+                                    <select name="online" id="" class="form-control form-select" required>
                                         <option value="1">Online</option>
                                         <option value="0">Offline</option>
                                     </select>
@@ -172,21 +172,21 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="speaker">Pembicara</label>
-                                    <input type="text" class="form-control" name="speaker" id="speaker">
+                                    <input type="text" class="form-control" name="speaker" id="speaker" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="contact">Contact Person</label>
-                                    <input type="number" class="form-control" name="contact" id="contact">
+                                    <input type="number" class="form-control" name="contact" id="contact" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="order_allowed_until">Waktu Seminar</label>
-                                    <input type="datetime-local" dusk="date" id="date" min="{{now()->format('Y-m-d\TH:i')}}" name="date" class="form-control" value="{{now()->format('Y-m-d\TH:i')}}">
+                                    <input type="datetime-local" dusk="date" id="date" min="{{now()->format('Y-m-d\TH:i')}}" name="date" class="form-control" value="{{now()->format('Y-m-d\TH:i')}}" required>
                                 </div>
                             </div>
                         </div>

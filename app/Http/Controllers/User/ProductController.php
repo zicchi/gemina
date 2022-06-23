@@ -25,6 +25,7 @@ class ProductController extends Controller
             ->when(\request()->filled('q'),function ($q){
                 $q->where('name','like',"%".\request()->input('q')."%");
             })
+            ->orderBy('activated','desc')
             ->paginate(9);
         $categories = Category::all();
         return view('pages.user.product.index',[

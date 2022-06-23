@@ -95,6 +95,7 @@ Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin
         Route::get('/',[AdminController::class,'index'])->name('index');
         Route::post('/',[AdminController::class,'store'])->name('store');
         Route::put('/{admin}/update',[AdminController::class,'update'])->name('update');
+        Route::delete('/{admin}/delete',[AdminController::class,'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'event','as' => 'event::'],function (){
@@ -102,6 +103,7 @@ Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin
         Route::get('/{product}',[AdminProductController::class,'show'])->name('show');
         Route::put('/{product}',[AdminProductController::class,'update'])->name('update');
         Route::get('/verify/{product}',[AdminProductController::class,'verify'])->name('verify');
+        Route::delete('/delete/{product}',[AdminProductController::class,'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'user','as' => 'user::'],function (){
@@ -109,18 +111,21 @@ Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin
         Route::post('/store',[AdminUserControllerAlias::class,'store'])->name('store');
         Route::get('/{user}',[AdminUserControllerAlias::class,'show'])->name('show');
         Route::put('/{user}/update',[AdminUserControllerAlias::class,'update'])->name('update');
+        Route::delete('/{user}/delete',[AdminUserControllerAlias::class,'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'faq','as' => 'faq::'],function (){
         Route::get('/',[FAQControllerAlias::class,'index'])->name('index');
         Route::post('/store',[FAQControllerAlias::class,'store'])->name('store');
         Route::put('/update',[FAQControllerAlias::class,'update'])->name('update');
+        Route::delete('/{faq}',[FAQControllerAlias::class,'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'category','as' => 'category::'],function (){
         Route::get('/',[CategoryController::class,'index'])->name('index');
         Route::post('/store',[CategoryController::class,'store'])->name('store');
         Route::put('/{category}/update',[CategoryController::class,'update'])->name('update');
+        Route::delete('/{category}/delete',[CategoryController::class,'destroy'])->name('destroy');
     });
 
     Route::group(['prefix' => 'suggestion','as' => 'suggestion::'],function (){
@@ -131,5 +136,6 @@ Route::group(['middleware' => 'admin','prefix' => 'office/admin/','as' => 'admin
         Route::get('/',[\App\Http\Controllers\Admin\SpeakerController::class,'index'])->name('index');
         Route::put('/{speaker}',[\App\Http\Controllers\Admin\SpeakerController::class,'update'])->name('update');
         Route::get('/{speaker}/activate',[\App\Http\Controllers\Admin\SpeakerController::class,'activate'])->name('activate');
+        Route::get('/{speaker}/deactivate',[\App\Http\Controllers\Admin\SpeakerController::class,'deactivate'])->name('deactivate');
     });
 });

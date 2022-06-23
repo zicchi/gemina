@@ -13,7 +13,10 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(5);
+        $products = Product::when(\request()->filled('q'),function ($q){
+            $q->where('name','like',"%".\request()->input('q')."%");
+        })
+        ->paginate(5);
 
         return view('pages.admin.products.index',[
             'products' => $products
@@ -62,5 +65,12 @@ class ProductController extends Controller
         $product->save();
 
         return redirect(route('admin::event::show',[$product]));
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('admin::event::index');
     }
 }

@@ -15,6 +15,9 @@ class FaqSeeder extends Seeder
     public function run()
     {
         Faq::truncate();
-        Faq::factory()->count(5)->create();
+        Faq::factory()->create([
+            'question' => 'Apa itu Gemina ?',
+            'answer' => 'Aplikasi “Gemina” merupakan aplikasi berbasis web khusus yang hanya mencakup tentang webinar serta fitur pencarian pembicara.'
+        ]);
     }
 }

@@ -11,7 +11,6 @@ class Admin extends Authenticatable
     use HasFactory;
 
     const ROLE_STAFF = 'staff';
-    const ROLE_ADMIN = 'admin';
 
     protected $appends = [
         'role_name'
@@ -21,7 +20,6 @@ class Admin extends Authenticatable
     public static function adminRoles()
     {
         return [
-            self::ROLE_ADMIN => 'Admin',
             self::ROLE_STAFF => 'Staff',
         ];
     }
@@ -29,8 +27,6 @@ class Admin extends Authenticatable
     public function getRoleNameAttribute()
     {
         switch ($this->role){
-            case self::ROLE_ADMIN:
-                return 'Admin';
             case self::ROLE_STAFF:
                 return 'Staff';
             case 'superadmin':

@@ -15,7 +15,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->company,
+            'name' => 'Seminar '.$this->faker->unique()->company,
             'description' => $this->faker->words(20,true),
             'initiator_id' => 1,
             'initiator_type' => User::class,

@@ -15,6 +15,20 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::truncate();
-        Category::factory()->count(10)->create();
+        Category::factory()->create([
+            'name' => 'Teknologi'
+        ]);
+        Category::factory()->create([
+            'name' => 'Biologi'
+        ]);
+        Category::factory()->create([
+            'name' => 'Psikologi'
+        ]);
+        Category::factory()->create([
+            'name' => 'Sains'
+        ]);
+        Category::factory()->create([
+            'name' => 'Kesehatan'
+        ]);
     }
 }

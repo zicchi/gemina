@@ -44,6 +44,13 @@
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" data-bs-target="#editAdmin-{{$admin->id}}" data-bs-toggle="modal" class="btn btn-outline-success">Edit</button>
+                                                @if(auth('admin')->user()->role == 'superadmin')
+                                                    <button form="delete-item-{{ $admin->id }}" onclick="return confirm('Anda yakin ingin menghapus data {{ $admin->name }}')" class="btn btn-danger">Hapus</button>
+                                                    <form action="{{ route('admin::admins::destroy', [$admin]) }}" method="post" class="hidden" id="delete-item-{{ $admin->id }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                    </form>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>

@@ -39,8 +39,17 @@
                                         <td>{{$faq->question}}</td>
                                         <td>{{$faq->answer}}</td>
                                         <td>
-                                            <button class="btn btn-success" data-bs-toggle="modal"
-                                                    data-bs-target="#edit-faq-{{$faq->id}}">Edit</button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-success" data-bs-toggle="modal"
+                                                        data-bs-target="#edit-faq-{{$faq->id}}">Edit</button>
+                                                @if(auth('admin')->user()->role == 'superadmin')
+                                                    <button form="delete-item-{{ $faq->id }}" onclick="return confirm('Anda yakin ingin menghapus data {{ $faq->id }}')" class="btn btn-danger">Hapus</button>
+                                                    <form action="{{ route('admin::faq::destroy', [$faq]) }}" method="post" class="hidden" id="delete-item-{{ $faq->id }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                    </form>
+                                                @endif
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

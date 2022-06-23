@@ -19,6 +19,15 @@
                 </button>
             </div>
         </div>
+        <div class="card my-3">
+            <div class="card-body">
+                <form action="{{route('admin::user::index')}}">
+                    <div class="form-group">
+                        <input type="search" name="q" placeholder="Cari.." class="form-control">
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="ec-vendor-list card card-default">
@@ -41,6 +50,13 @@
                                         <td>
                                             <div class="btn-group">
                                                 <a href="{{route('admin::user::show',[$user])}}" class="btn btn-outline-info">Rincian</a>
+                                                @if(auth('admin')->user()->role == 'superadmin')
+                                                    <button form="delete-item-{{ $user->id }}" onclick="return confirm('Anda yakin ingin menghapus data {{ $user->name }}')" class="btn btn-danger">Hapus</button>
+                                                    <form action="{{ route('admin::user::destroy', [$user]) }}" method="post" class="hidden" id="delete-item-{{ $user->id }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                    </form>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
@@ -54,7 +70,9 @@
         </div>
 
         <div class="my-3">
-            {{$users->links()}}
+            {{$users->appends([
+    'q' => request()->input('q')
+])->links()}}
         </div>
 
         <div class="modal fade modal-add-contact" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

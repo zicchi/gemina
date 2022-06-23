@@ -29,7 +29,7 @@
                                         <span class="new-price">GRATIS</span>
                                     </div>
                                     <div class="ec-spe-pro-btn">
-                                        <a href="#" class="btn btn-lg btn-primary">Gabung</a>
+                                        <a href="{{route('main::product::show',[$product])}}" class="btn btn-lg btn-primary">Gabung</a>
                                     </div>
                                     <div class="ec-spe-pro-progress">
                                         <span class="ec-spe-pro-progress-desc"><span>Slot terisi:

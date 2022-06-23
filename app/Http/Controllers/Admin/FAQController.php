@@ -30,4 +30,11 @@ class FAQController extends Controller
         $faq->answer = $request->input('edit-answer');
         $faq->save();
     }
+
+    public function destroy(Faq $faq)
+    {
+        $faq->delete();
+
+        return redirect()->route('admin::faq::index');
+    }
 }

@@ -59,7 +59,7 @@ class SpeakerController extends Controller
         $speaker->instance = $request->input('instance');
         $speaker->save();
 
-        return redirect()->route('admin::speakers::index')->with('success','Silahkan tunggu CV Anda diverifikasi, setelah diverifikasi data Anda akan muncul pada halaman utama');
+        return redirect()->route('admin::speakers::index')->with('success','Sukses ubah data');
     }
 
     public function register(Request $request)
@@ -100,6 +100,13 @@ class SpeakerController extends Controller
     public function activate(Speaker $speaker)
     {
         $speaker->activated = true;
+        $speaker->save();
+
+        return redirect()->route('admin::speakers::index');
+    }
+    public function deactivate(Speaker $speaker)
+    {
+        $speaker->activated = false;
         $speaker->save();
 
         return redirect()->route('admin::speakers::index');

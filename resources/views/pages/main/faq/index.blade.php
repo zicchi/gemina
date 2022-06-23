@@ -9,7 +9,6 @@
             <div class="section-title">
                 <h2 class="ec-bg-title">FAQ</h2>
                 <h2 class="ec-title">FAQ</h2>
-                <p class="sub-title mb-3">Customer service management</p>
             </div>
         </div>
         <div class="ec-faq-wrapper">

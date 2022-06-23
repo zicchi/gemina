@@ -17,10 +17,12 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $user = auth('user')->user();
-        $check = Order::where('product_id',$product->id)->where('user_id',$user->id)->first();
+        if ($user){
+            $check = Order::where('product_id',$product->id)->where('user_id',$user->id)->first();
+        }
         return view('pages.main.product.view',[
             'product' => $product,
-            'check' => $check,
+            'check' => $check ?? null,
         ]);
     }
 

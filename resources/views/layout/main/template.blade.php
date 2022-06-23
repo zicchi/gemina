@@ -64,7 +64,7 @@
 <!-- Ec Instagram End -->
 
 <!-- Footer Start -->
-@include('includes.main.footer')
+{{--@include('includes.main.footer')--}}
 <!-- Footer Area End -->
 
 <!-- Modal -->

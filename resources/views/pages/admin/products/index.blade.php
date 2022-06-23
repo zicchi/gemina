@@ -14,6 +14,16 @@
             </a>
         </div>
     </div>
+
+    <div class="card my-3">
+        <div class="card-body">
+            <form action="{{route('admin::event::index')}}">
+                <div class="form-group">
+                    <input type="search" name="q" placeholder="Cari.." class="form-control">
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="ec-vendor-list card card-default">
@@ -52,6 +62,13 @@
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{route('admin::event::show',[$product])}}" class="btn btn-outline-info">Rincian</a>
+                                            @if(auth('admin')->user()->role == 'superadmin')
+                                                <button form="delete-item-{{ $product->id }}" onclick="return confirm('Anda yakin ingin menghapus data {{ $product->name }}')" class="btn btn-danger">Hapus</button>
+                                                <form action="{{ route('admin::event::destroy', [$product]) }}" method="post" class="hidden" id="delete-item-{{ $product->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

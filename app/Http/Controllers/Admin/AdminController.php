@@ -41,4 +41,11 @@ class AdminController extends Controller
 
         return redirect()->route('admin::admins::index');
     }
+
+    public function destroy(Admin $admin)
+    {
+        $admin->delete();
+
+        return redirect()->route('admin::admins::index');
+    }
 }

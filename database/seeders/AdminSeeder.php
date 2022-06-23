@@ -22,6 +22,6 @@ class AdminSeeder extends Seeder
             'name' => 'Dev',
             'role' => 'superadmin'
         ]);
-        Admin::factory()->count(9)->create();
+        Admin::factory()->count(3)->create();
     }
 }

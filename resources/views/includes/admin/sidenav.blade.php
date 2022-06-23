@@ -20,13 +20,15 @@
                     </a>
                     <hr>
                 </li>
-                <li class="{{request()->is('office/admin/admins*') ? 'active' : ''}}">
-                    <a class="sidenav-item-link" href="{{route('admin::admins::index')}}">
-                        <i class="mdi mdi-account-key"></i>
-                        <span class="nav-text">Admin</span>
-                    </a>
-                    <hr>
-                </li>
+                @if(auth('admin')->user()->role == 'superadmin')
+                    <li class="{{request()->is('office/admin/admins*') ? 'active' : ''}}">
+                        <a class="sidenav-item-link" href="{{route('admin::admins::index')}}">
+                            <i class="mdi mdi-account-key"></i>
+                            <span class="nav-text">Admin</span>
+                        </a>
+                        <hr>
+                    </li>
+                @endif
                 <li class="{{request()->is('office/admin/event*') ? 'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('admin::event::index')}}">
                         <i class="mdi mdi-calendar"></i>

@@ -42,7 +42,7 @@
                                         <span class="label veg">
                                             <span class="dot"></span>
                                         </span>
-                                            <img class="main-image" src="{{asset('main/assets/images/product-image/50_1.jpg')}}" alt="Product" />
+                                            <img class="main-image" src="{{$speaker->thumb_image_url != '' ? $speaker->thumb_image_url : asset('main/assets/images/product-image/50_1.jpg')}}" alt="Product" />
                                         </a>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 <!-- Swiper -->
                                 <div class="qty-product-cover">
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="{{asset('main/assets/images/product-image/52_1.jpg')}}" alt="">
+                                        <img class="img-responsive" src="{{$speaker->thumb_image_url}}" alt="">
                                     </div>
                                 </div>
                             </div>

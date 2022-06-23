@@ -13,7 +13,10 @@ class UserController extends Controller
     use ImageUploader;
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::when(\request()->input('q'),function ($q){
+            $q->where('name','like',"%".\request()->input('q')."%");
+        })->
+        paginate(5);
         return view('pages.admin.user.index',[
             'users' => $users
         ]);
@@ -67,5 +70,12 @@ class UserController extends Controller
         return view('pages.admin.user.show',[
             'user' => $user
         ]);
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('admin::user::index');
     }
 }

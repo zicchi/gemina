@@ -42,6 +42,11 @@
                                                 @if(!$speaker->activated)
                                                     <a href="{{route('admin::speakers::activate',[$speaker])}}" class="btn btn-primary">Aktifkan</a>
                                                 @endif
+                                                @if(auth('admin')->user()->role == 'superadmin')
+                                                    @if($speaker->activated)
+                                                        <a href="{{route('admin::speakers::deactivate',[$speaker])}}" class="btn btn-danger">Nonaktifkan</a>
+                                                    @endif
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
@@ -115,7 +120,7 @@
             <div class="modal fade modal-add-contact" id="editAdmin-{{$speaker->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
-                        <form action="{{route('admin::speakers::update',[$speaker])}}" method="post">
+                        <form action="{{route('admin::speakers::update',[$speaker])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="modal-header px-4">
@@ -124,6 +129,13 @@
 
                             <div class="modal-body px-4">
                                 <div class="row mb-2">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="name">Foto</label>
+                                            <input type="file" class="form-control" name="image" id="name">
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="name">Nama</label>

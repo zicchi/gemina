@@ -197,7 +197,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="order_allowed_until">Waktu Seminar</label>
-                                        <input type="datetime-local" dusk="date" id="date" min="{{now()->format('Y-m-d\TH:i')}}" name="edit-date" class="form-control" value="{{\Carbon\Carbon::parse($product->date)->format('Y-m-d\TH:i')}}">
+                                        <input type="datetime-local" dusk="date" id="date" {{$product->activated == false ? 'min=.'.now()->format("Y-m-d\TH:i").'' : ''}} name="edit-date" class="form-control" value="{{\Carbon\Carbon::parse($product->date)->format('Y-m-d\TH:i')}}">
                                     </div>
                                 </div>
                             </div>

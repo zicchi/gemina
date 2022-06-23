@@ -10,7 +10,7 @@
                                 <h2 class="ec-slide-stitle">Kumpulan Webinar</h2>
                                 <h1 class="ec-slide-title">#dijaminGurih</h1>
                                 <div class="ec-slide-desc">
-                                    <a href="#" class="btn btn-lg btn-primary">Katalog</a>
+                                    <a href="{{route('main::product::index')}}" class="btn btn-lg btn-primary">Katalog</a>
                                 </div>
                             </div>
                         </div>
@@ -22,10 +22,10 @@
                     <div class="row">
                         <div class="col-sm-12 align-self-center">
                             <div class="ec-slide-content slider-animation">
-                                <h2 class="ec-slide-stitle">Ayo Gabung !</h2>
-                                <h1 class="ec-slide-title">promosikan webinarmu</h1>
+                                <h2 class="ec-slide-stitle">Ayo Gabung jadi Narasumber !</h2>
+                                <h1 class="ec-slide-title">sebarkan <br>pengalamanmu</h1>
                                 <div class="ec-slide-desc">
-                                    <a href="#" class="btn btn-lg btn-primary">Gabung</a>
+                                    <a href="{{route('main::speaker::register')}}" class="btn btn-lg btn-primary">Gabung</a>
                                 </div>
                             </div>
                         </div>

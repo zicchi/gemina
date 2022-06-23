@@ -39,8 +39,16 @@
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->name}}</td>
                                         <td>
-                                            <button class="btn btn-success" data-bs-toggle="modal"
-                                                    data-bs-target="#edit-category-{{$category->id}}">Edit</button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit-category-{{$category->id}}">Edit</button>
+                                                @if(auth('admin')->user()->role == 'superadmin')
+                                                    <button form="delete-item-{{ $category->id }}" onclick="return confirm('Anda yakin ingin menghapus data {{ $category->name }}')" class="btn btn-danger">Hapus</button>
+                                                    <form action="{{ route('admin::category::destroy', [$category]) }}" method="post" class="hidden" id="delete-item-{{ $category->id }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                    </form>
+                                                @endif
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
